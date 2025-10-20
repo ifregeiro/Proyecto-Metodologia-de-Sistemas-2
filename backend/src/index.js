@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // Importar rutas
-const productosRoutes = require('./src/routes/productos');
+const productosRoutes = require('./src/routes/rutaProductos');
 app.use('/api/productos', productosRoutes);
 
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
