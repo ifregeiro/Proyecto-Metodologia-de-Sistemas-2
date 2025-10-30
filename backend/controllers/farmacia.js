@@ -45,4 +45,18 @@ export class FarmaciaController {
         // Si no hubo ningún error
         return res.json({message: 'Producto eliminado'})
     }
+
+    // Función para actualizar productos
+    static async update(req, res) {
+        const result = validatePartialProduct(req.body)
+        
+        //Lanza un error si un dato del producto es erróneo
+        if(!result.success){
+            return res.status(400).json({error: JSON.parse(result.error.message)})
+        }
+        const { id } = req.params
+        const updateProduct = await FarmaciaModel.update({ id, input:result.data})
+
+        return res.json(updateProduct)
+    }
 }
