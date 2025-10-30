@@ -8,16 +8,13 @@ Sistema web para la **gestión y visualización de productos de la Farmacia Cara
 
 ### Frontend
 - **Vite + React 18**
-- **React Router DOM**
 - **Axios**
-- **CSS Modules / TailwindCSS**
+- **CSS**
 - **JavaScript ES6+**
 
 ### Backend
-- **Node.js + Express**
+- **Sequalize + Express**
 - **MySQL**
-- **CORS**
-- **Dotenv**
 
 ---
 
