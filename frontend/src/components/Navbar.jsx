@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 export default function Navbar() {
   return (
     <nav>
-      <h1>Farmacia Web</h1>
+      <h1>Farmacia Carabelli</h1>
       <ul>
         <li><Link to="/">Inicio</Link></li>
         <li><Link to="/catalogo">Catálogo</Link></li>
