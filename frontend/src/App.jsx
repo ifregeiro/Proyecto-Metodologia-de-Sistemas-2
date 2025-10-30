@@ -6,6 +6,7 @@ import Catalogo from './pages/Catalogo';
 import Contacto from './pages/Contacto';
 import Horarios from './pages/Horarios';
 import FarmaciasGuardia from './pages/FarmaciasGuardia';
+import './app.css';
 
 function App() {
   return (
