@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getProductos } from "../services/productoService"; // sin .js a veces funciona mejor en Vite
+import { getProductos } from "../services/productoService";
 import ProductCard from "../components/ProductCard";
 
 export default function Catalogo() {

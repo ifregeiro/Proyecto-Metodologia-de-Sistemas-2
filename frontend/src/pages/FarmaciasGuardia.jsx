@@ -1,6 +1,6 @@
 export default function FarmaciasGuardia() {
   const farmacias = [
-    { nombre: "Farmacia Central", direccion: "Bartolomé Mitre 198" },
+    { nombre: "Farmacia Carabelli", direccion: "Bartolomé Mitre 198" },
   ];
 
   return (
