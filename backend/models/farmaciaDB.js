@@ -8,83 +8,118 @@ const config = {
     database: 'webfarmaciadb'
 }
 
-const connectionString = process.env.DATABASE_URL ?? DEFAULT_CONFIG
-
-const conection = mysql.createConnection(config);
+const connection = await mysql.createConnection(config);
 
 export class FarmaciaModel {
+    // Obtener todos los productos o filtrar por categoria si se proporciona
     static async getAll ({ categoria }) {
         console.log('getAll')
         
         if (categoria){
-            const loweCaseCategory = genre.toLowerCase()
+            const lowerCaseCategory = categoria.toLowerCase();
             
             const [categorias] = await connection.query(
                 'SELECT id_cat, nombre FROM categoria WHERE LOWER(nombre) = ?;',
                 [lowerCaseCategory]
-            )
+            );
         // Si no se encuentran categorias devuelve el arreglo vacío
-            if(categorias.length === 0) return []
+            if(categoria.length === 0) return [];
 
-            const [{ id_cat }] = categorias
+            const { id_cat } = categoria[0];
 
-            return []
+            const [ productos ] = await connection.query(
+                `SELECT p.id_prod, p.nombre, p.descripcion, p.precio, p.stock, c.nombre AS categoria
+                FROM producto p
+                JOIN categoria c ON p.id_cat = c.id_cat
+                WHERE producto.id_cat = ?;`,
+                [id_cat]
+            );
+
+            return productos;
         }
 
         const [productos] = await connectionString.query(
-            'SELECT id_prod, nombre, descripcion, precio, stock FROM producto;'
-        )
+            `SELECT p.id_prod, p.nombre, p.descripcion, p.precio, p.stock, c.nombre AS categoria, s.nombre AS subcategoria
+            FROM producto p
+            LEFT JOIN categoria c ON p.id_cat = c.id_cat
+            LEFT JOIN sub_categoria s ON p.id_subcat = s.id_subcat;`
+        );
         
-        return productos
+        return productos;
     }
     static async getById ({ id }){
         const [productos] = await connection.query(
-            'SELECT id_prod, nombre, descripcion, precio, stock FROM producto WERE id = id_prod;',
+            `SELECT id_prod, nombre, descripcion, precio, stock, id_cat, id_subcat
+            FROM producto
+            WERE id = id_prod;`,
             [id]
-        )
+        );
 
-        if (productos.length === 0)return null
+        if (productos.length === 0) return null;
 
-        return movies[0]
+        return movies[0];
     }
 
     static async create ({ input }) {
         const {
-            categoria: categoriaInput,
             nombre,
             descripcion,
             precio,
-            stock
+            stock,
+            id_cat,
+            id_subcat
         } = input
 
         try {
-            (await conection).query(
-                `INSERT INTO producto (nombre, descripcion, precio, stock) VALUES (?, ?, ?, ?);`,
-                [nombre, descripcion, precio, stock]
-            )
+            const [ result ] = await connection.query(
+                `INSERT INTO producto (nombre, descripcion, precio, stock, id_cat, id_subcat)
+                VALUES (?, ?, ?, ?, ?, ?);`,
+                [nombre, descripcion, precio, stock, id_cat, id_subcat]
+            );
+
+            const insertId = result.insertId;
+
+            const [ productos ] = await connection.query(
+            `SELECT id_prod, nombre, descripcion, precio, stock, id_cat, id_subcat
+            FROM producto
+            WHERE id_prod = ?;`,
+            [insertId]);
+            return productos[0];
         } catch (e) {
-            throw new Error('Error al crear producto')
+            throw new Error('Error al crear producto');
         }
-        const [productos] = await connection.query(
-            `SELECT nombre, descripcion, precio, stock, id_prod FROM productos WHERE id = id_prod;`,
-
-        )
-
-        return productos[0]
     }
 
-    static async delete ({ id }) {
-
+    static async deleteById ({ id }) {
+        try{
+            const [productos] = await connection.query(
+            `DELETE FROM producto WHERE id_prod = ?;`,
+            [id]
+            );
+            return productos.affectedRows > 0;
+        } catch (e) {
+            throw new Error('No fue posible borrar el producto.')
+        }
     }
-    static async update ({id, input}) {
-        
-    }
-    //     const result = await createConnection.query(
-    //         'SELECT * FROM producto;'
-    //     )
-    //     console.log(result);
-    
-    // static async getById ({id_prod}){
+    static async updateById ({id, input}) {
+        try{
+            const [ productos ] = await connection.query(
+                `UPDATE producto 
+                SET nombre = ?, descripcion = ?, precio = ?, stock = ?, id_cat = ?, id_subcat = ?
+                WHERE id_prod = ?;`,
+                [nombre, descripcion, precio, stock, id_cat, id_subcat, id]
+            );
+            if (productos.affectedRows === 0) return null;
 
-    // }
+            const [ productoActualizado ] = await connection.query( 
+                `SELECT id_prod, nombre, descripcion, precio, stpck, id_cat, id_subcat
+                FROM producto
+                WHERE id_prod = ?;`,
+                [id]
+            );
+            return productoActualizado[0];
+        } catch (e) {
+            throw new Error('Error al intentar actualizar el producto.')
+        }
+    }
 }
