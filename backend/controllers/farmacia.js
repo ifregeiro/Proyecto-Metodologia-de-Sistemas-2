@@ -1,21 +1,25 @@
-import { FarmaciaModel } from "../models/farmaciaDB";
-import { validateProduct } from "../schemas/farmacia";
+import { validarProducto, validacionParcialProducto } from '../schemas/farmaciaSchema.js'
+
 export class FarmaciaController {
-    static async getAll (req, res){
+    constructor ({ farmaciaModel }){
+        this.farmaciaModel = farmaciaModel
+    }
+    getAll = async (req, res) => {
         const { categoria } = req.query
-        const productos = await FarmaciaModel.getAll({ categoria })
+        const productos = await this.farmaciaModel.getAll({ categoria })
         res.json(productos)
     }
-    static async getById (req, res) {
+    getById = async (req, res) => {
         const { id_prod } = req.params
-        const producto = await FarmaciaModel.getById({ id_prod })
-        if (producto) 
+        const producto = await this.farmaciaModel.getById({ id_prod })
+        if (producto) {
             return res.json(producto)
+        }
         res.status(404).json({ message: 'Producto no encontrado'})
     }
     // Función para crear nuevo producto
-    static async create (req, res) {
-        const result = validateProduct(req.body)
+    create = async (req, res) => {
+        const result = validarProducto(req.body)
         
         // Si el producto ingresado tiene algún fallo
         // se lanza un error
@@ -25,7 +29,7 @@ export class FarmaciaController {
         }
         
         // Crea el producto
-        const newProduct = await FarmaciaModel.create({ input: result.data })
+        const newProduct = await this.farmaciaModel.create({ input: result.data })
         
         // Devuelve el estado de operación exitosa
         // con el nuevo producto
@@ -33,9 +37,9 @@ export class FarmaciaController {
     }
 
     // Función para eliminar un producto
-    static async delete (req, res){
+    delete = async (req, res) => {
         const { id } = req.params
-        const result = await FarmaciaModel.delete({ id })
+        const result = await this.farmaciaModel.delete({ id })
 
         // Lanza un error si no encuentra el producto
         if (result === false){
@@ -46,16 +50,16 @@ export class FarmaciaController {
         return res.json({message: 'Producto eliminado'})
     }
 
-    // Función para actualizar productos
-    static async update(req, res) {
-        const result = validatePartialProduct(req.body)
+    // Actualizar productos
+    update = async (req, res) =>{
+        const result = validacionParcialProducto(req.body)
         
         //Lanza un error si un dato del producto es erróneo
         if(!result.success){
             return res.status(400).json({error: JSON.parse(result.error.message)})
         }
         const { id } = req.params
-        const updateProduct = await FarmaciaModel.update({ id, input:result.data})
+        const updateProduct = await farmaciaModel.update({ id, input: result.data})
 
         return res.json(updateProduct)
     }

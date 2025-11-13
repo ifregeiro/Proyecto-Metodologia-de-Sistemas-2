@@ -1,17 +1,18 @@
 import { Router } from 'express'
-import {readJSON} from './utils.js'
-import { FarmaciaModel } from '../models/farmaciaDB.js'
-const router = Router()
+import { FarmaciaController } from '../controllers/farmacia.js'
 
-router.get('/producto', (req, res) =>{
-    const { categoria } = req.query
-    if (categoria) {
-        const filtradoProductos = productos.filter( producto => producto.categoria.some(c => c.toLowerCase() === categoria.toLowerCase()))
-        return res.json(filtradoProductos)
-    }
-    res.json(productos)
-})
+export const createRutaProducto = ({ farmaciaModel }) => {
+    const Productosrouter = Router()
 
-router.post('/', (req,res) => {
-    const nuevoProducto = req.body
-})
+    const ProductoController = new ProductoController({ farmaciaModel })
+// Devolver todos los productos
+    Productosrouter.get('/', FarmaciaController.getAll)
+// Crear producto nuevo
+    Productosrouter.post('/', FarmaciaController.create)
+// Devolder producto por id
+    Productosrouter.get('/:id', FarmaciaController.getById)
+// Eliminar producto por id
+    Productosrouter.delete('/:id', FarmaciaController.delete)
+// Actualizar información de un producto por id
+    Productosrouter.put('/:id', FarmaciaController.update)
+}
