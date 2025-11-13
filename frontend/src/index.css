@@ -42,40 +42,6 @@
   margin-bottom: 1.5rem;
 }
 
-
-/* tarjetas de producto */
-.producto {
-  flex: 0 0 auto;
-  width: 220px;
-  scroll-snap-align: center;
-  background: var(--celeste);
-  border-radius: 10px;
-  text-align: center;
-}
-
-.producto a{
-    text-decoration: none;
-}
-
-.producto img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
-
-.producto h3 {
-  color: var(--indigo);
-  margin: 0.6rem 0 0.3rem;
-  font-size: 1rem;
-}
-
-.precio {
-  color: var(--aqua);
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
 /* Botones ----------------------------------- */
 .button {
     display: block;

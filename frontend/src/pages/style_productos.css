@@ -1,0 +1,88 @@
+:root {
+    --blanco: #fbfbed;
+    --beige: #dcdcb9;
+    --negro: #1a1a1a;
+    --indigo: #659dff;
+    --celeste: #92ccf8;
+    --aqua: #66b398;
+    --musgo: #64956d;
+}
+
+/* tarjetas de producto -----------------------*/
+.producto {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: center;
+  background: var(--celeste);
+  border-radius: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.producto a{
+    text-decoration: none;
+}
+
+.producto img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.producto h3 {
+  color: var(--indigo);
+  margin: 0.6rem 0 0.3rem;
+  font-size: 1rem;
+}
+
+.precio {
+  color: var(--aqua);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* carrousel productos index -------------------------------------------------*/
+.carrusel-contenedor {
+  display: flex;
+  flex-wrap: nowrap;         /* los items se mantienen en una sola fila */
+  overflow-x: auto;          /* permite desplazamiento horizontal */
+  scroll-behavior: smooth;   /* desplazamiento suave */
+  gap: 1rem;                 /* opcional: espacio entre productos */
+  scrollbar-width: none;     /* oculta barra en Firefox */
+}
+
+.carrusel-botones {
+  display: flex;
+  justify-content: center;      /* centra los botones */
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btn-izquierda,
+.btn-derecha {
+  background-color: var(--aqua);
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;           /* botones redondos (50%) o cuadrados */
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+.btn-izquierda:hover,
+.btn-derecha:hover {
+  background-color: var(--indigo);
+  transform: scale(1.1);
+}
+
+/* Efecto al hacer clic */
+.btn-izquierda:active,
+.btn-derecha:active {
+  transform: scale(0.95);
+  background-color: var(--celeste);
+}

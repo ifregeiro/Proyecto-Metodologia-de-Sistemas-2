@@ -7,28 +7,28 @@ export default function Cat_venta_libre() {
     <>
       <main className="categorias">
         <article className="cat-card">
-          <Link to="#" className="ver-detalle">
+          <Link to="medicamentos_topicos" className="ver-detalle">
             <img src={pato} alt="medicamentos_topicos" />
             <h3>Medicamentos tópicos</h3>
           </Link>
         </article>
 
         <article className="cat-card">
-          <Link to="#" className="ver-detalle">
+          <Link to="medicamentos_via_oral" className="ver-detalle">
             <img src={pato} alt="medicamentos_via_oral" />
             <h3>Medicamentos vía oral</h3>
           </Link>
         </article>
 
         <article className="cat-card">
-          <Link to="#" className="ver-detalle">
+          <Link to="medicamentos_nasales" className="ver-detalle">
             <img src={pato} alt="medicamentos_nasales" />
             <h3>Medicamentos nasales</h3>
           </Link>
         </article>
 
         <article className="cat-card">
-          <Link to="#" className="ver-detalle">
+          <Link to="medicamentos_rectales" className="ver-detalle">
             <img src={pato} alt="medicamentos_rectales" />
             <h3>Medicamentos rectales</h3>
           </Link>
