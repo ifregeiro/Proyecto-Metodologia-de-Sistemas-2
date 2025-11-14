@@ -1,14 +1,4 @@
-import mysql from 'mysql2/promise';
-
-const config = {
-    host: 'localhost',
-    user: 'root',
-    port: 3306,
-    password: '',
-    database: 'webfarmaciadb'
-}
-
-const connection = await mysql.createConnection(config);
+import { connection } from "../config/config.js";
 
 export class FarmaciaModel {
     // Obtener todos los productos o filtrar por categoria si se proporciona
