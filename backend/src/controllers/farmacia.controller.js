@@ -10,8 +10,8 @@ export class FarmaciaController {
         res.json(productos)
     }
     getById = async (req, res) => {
-        const { id_prod } = req.params
-        const producto = await this.farmaciaModel.getById({ id_prod })
+        const { id } = req.params
+        const producto = await this.farmaciaModel.getById({ id })
         if (producto) {
             return res.json(producto)
         }
@@ -19,13 +19,13 @@ export class FarmaciaController {
     }
     // Función para crear nuevo producto
     create = async (req, res) => {
-        const result = validarProducto(req.body)
+        const result = await validarProducto(req.body)
         
         // Si el producto ingresado tiene algún fallo
         // se lanza un error
         if (!result.success) {
 
-            return res.status(400).json({ error: JSON.parse(result.error.message)})
+            return res.status(400).json({ error: result.error.issues })
         }
         
         // Crea el producto
@@ -39,7 +39,7 @@ export class FarmaciaController {
     // Función para eliminar un producto
     delete = async (req, res) => {
         const { id } = req.params
-        const result = await this.farmaciaModel.delete({ id })
+        const result = await this.farmaciaModel.deleteById({ id })
 
         // Lanza un error si no encuentra el producto
         if (result === false){
@@ -52,14 +52,18 @@ export class FarmaciaController {
 
     // Actualizar productos
     update = async (req, res) =>{
-        const result = validacionParcialProducto(req.body)
+        const result = await validacionParcialProducto(req.body)
         
         //Lanza un error si un dato del producto es erróneo
         if(!result.success){
             return res.status(400).json({error: JSON.parse(result.error.message)})
         }
         const { id } = req.params
-        const updateProduct = await farmaciaModel.update({ id, input: result.data})
+        const updateProduct = await this.farmaciaModel.update({ id, input: result.data})
+
+        if (!updateProduct) {
+            return res.status(404).json({ message: "No se encontró el producto" })
+        }
 
         return res.json(updateProduct)
     }

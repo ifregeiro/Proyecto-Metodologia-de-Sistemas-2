@@ -8,15 +8,25 @@ const ACCEPTED_ORIGINS = [
 ]
 
 export const corsMiddleware = ({ acceptedOrigins = ACCEPTED_ORIGINS } = {}) => cors({
-    origin: (origin,callback) => {
-        if (acceptedOrigins.includes(origin)) {
-            return callback(null, true)
-        }
+    origin: (origin, callback) => {
 
         if (!origin) {
+            return callback(null, true);
+        }
+        const normalizado = origin.toLowerCase();
+
+        if (acceptedOrigins.includes(normalizado)) {
             return callback(null, true)
         }
+        
+        const permitirFarmacia = /\.farmaciacarabelli\.com\.ar$/;
+        if (permitirFarmacia.test(normalizado)) {
+            return callback(null, true);
+        }
 
+        console.warn(`CORS BLOCKED: ${origin}`);
         return callback(new Error('Not allowed by CORS'))
-    }
-})
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+});

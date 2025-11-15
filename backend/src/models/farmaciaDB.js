@@ -13,22 +13,22 @@ export class FarmaciaModel {
                 [lowerCaseCategory]
             );
         // Si no se encuentran categorias devuelve el arreglo vacío
-            if(categoria.length === 0) return [];
+            if(categorias.length === 0) return [];
 
-            const { id_cat } = categoria[0];
+            const { id_cat } = categorias[0];
 
             const [ productos ] = await connection.query(
                 `SELECT p.id_prod, p.nombre, p.descripcion, p.precio, p.stock, c.nombre AS categoria
                 FROM producto p
                 JOIN categoria c ON p.id_cat = c.id_cat
-                WHERE producto.id_cat = ?;`,
+                WHERE p.id_cat = ?;`,
                 [id_cat]
             );
 
             return productos;
         }
 
-        const [productos] = await connectionString.query(
+        const [productos] = await connection.query(
             `SELECT p.id_prod, p.nombre, p.descripcion, p.precio, p.stock, c.nombre AS categoria, s.nombre AS subcategoria
             FROM producto p
             LEFT JOIN categoria c ON p.id_cat = c.id_cat
@@ -41,13 +41,13 @@ export class FarmaciaModel {
         const [productos] = await connection.query(
             `SELECT id_prod, nombre, descripcion, precio, stock, id_cat, id_subcat
             FROM producto
-            WERE id = id_prod;`,
+            WHERE id = id_prod;`,
             [id]
         );
 
         if (productos.length === 0) return null;
 
-        return movies[0];
+        return productos[0];
     }
 
     static async create ({ input }) {
@@ -81,6 +81,15 @@ export class FarmaciaModel {
     }
 
     static async deleteById ({ id }) {
+        const {
+            nombre,
+            descripcion,
+            precio,
+            stock,
+            id_cat,
+            id_subcat
+        } = input
+
         try{
             const [productos] = await connection.query(
             `DELETE FROM producto WHERE id_prod = ?;`,
@@ -102,7 +111,7 @@ export class FarmaciaModel {
             if (productos.affectedRows === 0) return null;
 
             const [ productoActualizado ] = await connection.query( 
-                `SELECT id_prod, nombre, descripcion, precio, stpck, id_cat, id_subcat
+                `SELECT id_prod, nombre, descripcion, precio, stock, id_cat, id_subcat
                 FROM producto
                 WHERE id_prod = ?;`,
                 [id]
