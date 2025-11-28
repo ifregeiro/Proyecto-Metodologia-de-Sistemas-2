@@ -22,57 +22,53 @@
 }
 
 /* Carrusel productos --------------------------------- */
-.carrusel-productos {
-  padding: 2rem 1rem;
-  border-radius: 10px;
-  overflow: hidden;
+.carrusel-contenedor {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem; /* evita que se corten las tarjetas */
+  scrollbar-width: none; /* Firefox */
 }
 
-.carrusel-contenedor{ /* Agregado de clase y posteriormente se separo con cuadricula cada 5 columnas */
-  display: grid; /* Metodo de uso: Cuadricula (Grid)*/
-  grid-template-columns: repeat(5, 1fr); /* Cambiar el 5 por otro num para columnas */
-  gap: 2rem;
-  padding: 3rem;
-  justify-items: center;
+/* ocultar scrollbar en Chrome */
+.carrusel-contenedor::-webkit-scrollbar {
+  display: none;
 }
 
-.titulo-carrusel {
-  text-align: center;
-  color: var(--indigo);
-  margin-bottom: 1.5rem;
+/* botones del carrusel */
+.carrusel-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
 }
 
-/* Botones ----------------------------------- */
-.button {
-    display: block;
-    background: var(--celeste);
-    color: var(--blanco);
-    padding: 0.8rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    
+.btn-izquierda,
+.btn-derecha {
+  background-color: var(--aqua);
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.button:hover {
-    background: var(--indigo);
+/* efecto hover */
+.btn-izquierda:hover,
+.btn-derecha:hover {
+  background-color: var(--indigo);
+  transform: scale(1.1);
 }
 
-/* info farmacia --------------------------------------- */
-
-h2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: var(--indigo);
-}
-
-div p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: var(--indigo);
+/* efecto clic */
+.btn-izquierda:active,
+.btn-derecha:active {
+  transform: scale(0.95);
+  background-color: var(--celeste);
 }

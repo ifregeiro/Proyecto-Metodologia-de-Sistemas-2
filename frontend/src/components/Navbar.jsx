@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./style_navbar.css"; // asegurate de importar tu CSS
-import pato from "../img/duck.png";
+import "./style_navbar.css";
+import imgCarabelli_logo from "../img/Carabelli_logo.png";
 
 
 export default function Navbar() {
@@ -14,11 +14,11 @@ export default function Navbar() {
 
       {/* Logo */}
       <div className="logo">
-        <img src={pato} alt="Logo de la farmacia" />
+        <img src={imgCarabelli_logo} alt="Logo farmacia" />
         <h1>Farmacia Carabelli</h1>
       </div>
 
-      {/* Si más adelante querés una sección derecha (usuario, carrito, etc.) */}
+      {/* más adelante una sección derecha (usuario, carrito, etc.) */}
       <ul className="nav-derecha">
         <li><Link to="/contacto">Contacto</Link></li>
       </ul>

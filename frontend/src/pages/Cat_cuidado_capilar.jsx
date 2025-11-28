@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import './style_productos.css'
+import duck from "../img/duck.png"; // imagen local en /src/img/duck.png
 import React from "react";
-import duck from "../img/duck.png"
 
 {/* REFERENCIA DE DATOS */}
 const productos = [
@@ -28,7 +28,7 @@ const productos = [
   }
 ];
 
-function Cat_dispositivos() {
+function Cat_cuidado_capilar() {
   return (
     <main className="productos-contenedor">
       {productos.map((prod) => (
@@ -44,4 +44,4 @@ function Cat_dispositivos() {
   );
 }
 
-export default Cat_dispositivos;
+export default Cat_cuidado_capilar;

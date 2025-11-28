@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import React from "react";
 
 export default function Carrusel() {
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Carrusel() {
             <h3>Dermaglós Facial BB Cream</h3>
             <p className="precio">$30.200</p>
           </a>
-        </article>
+        </article> 
 
         <article className="producto">
           <a href="#">

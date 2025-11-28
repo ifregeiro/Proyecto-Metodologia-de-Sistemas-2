@@ -8,81 +8,62 @@
     --musgo: #64956d;
 }
 
+/* grilla de productos -----------------------*/
+.productos-contenedor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 1.5rem;                           
+  padding: 1.5rem;
+}
+
 /* tarjetas de producto -----------------------*/
 .producto {
   flex: 0 0 auto;
   width: 220px;
   scroll-snap-align: center;
   background: var(--celeste);
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   padding: 10px;
+  box-sizing: border-box;
+
+  /* Control interno de contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* altura estable para todas */
+  min-height: 310px;
 }
 
-.producto a{
-    text-decoration: none;
+.producto a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
 }
 
+/* imagen de producto */
 .producto img {
   width: 100%;
-  height: 230px;
+  height: 200px;
   object-fit: cover;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px;
+  display: block;
 }
 
+/* nombre del producto */
 .producto h3 {
   color: var(--indigo);
-  margin: 0.6rem 0 0.3rem;
+  margin: 0.5rem 0 0.2rem;
   font-size: 1rem;
+  min-height: 2.4em; /* iguala alturas por líneas */
 }
 
+/* precio */
 .precio {
   color: var(--aqua);
   font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-/* carrousel productos index -------------------------------------------------*/
-.carrusel-contenedor {
-  display: flex;
-  flex-wrap: nowrap;         /* los items se mantienen en una sola fila */
-  overflow-x: auto;          /* permite desplazamiento horizontal */
-  scroll-behavior: smooth;   /* desplazamiento suave */
-  gap: 1rem;                 /* opcional: espacio entre productos */
-  scrollbar-width: none;     /* oculta barra en Firefox */
-}
-
-.carrusel-botones {
-  display: flex;
-  justify-content: center;      /* centra los botones */
-  align-items: center;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.btn-izquierda,
-.btn-derecha {
-  background-color: var(--aqua);
-  color: var(--blanco);
-  border: none;
-  border-radius: 5px;           /* botones redondos (50%) o cuadrados */
-  width: 45px;
-  height: 45px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Efecto al pasar el mouse */
-.btn-izquierda:hover,
-.btn-derecha:hover {
-  background-color: var(--indigo);
-  transform: scale(1.1);
-}
-
-/* Efecto al hacer clic */
-.btn-izquierda:active,
-.btn-derecha:active {
-  transform: scale(0.95);
-  background-color: var(--celeste);
+  margin-top: auto;
+  margin-bottom: 0.5rem;
 }
