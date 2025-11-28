@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import React from "react";
+import '../index.css'
 
 export default function Carrusel() {
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function Carrusel() {
 
   return (
     <section className="carrusel-productos">
+      
       <h2 className="titulo-carrusel">Productos destacados</h2>
 
       <div className="carrusel-botones">

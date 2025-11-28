@@ -8,6 +8,7 @@ import Carrusel_productos_destacados from "./pages/Carrusel_productos_destacados
 import InfoFarmacia from "./components/InfoFarmacia";
 
 import Cat_productos from "./pages/Cat_productos";
+import Contacto from "./pages/Contacto";
 
 import Cat_higiene_personal from "./pages/Cat_higiene_personal";
 import Cat_primeros_auxilios from "./pages/Cat_primeros_auxilios";
@@ -56,6 +57,7 @@ function App() {
 
         {/* Página general de categorías */}
         <Route path="/categorias" element={<Cat_productos />} />
+        <Route path="/contacto" element={<Contacto />} />
 
         {/* Página de categorías */}
         <Route path="/categorias/bebes" element={<Cat_bebes />} />

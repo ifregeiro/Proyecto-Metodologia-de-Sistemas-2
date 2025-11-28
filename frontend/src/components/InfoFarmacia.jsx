@@ -8,6 +8,7 @@ export default function InfoFarmacia() {
       <h2>Nosotros</h2>
       <p>Contamos con profesionales para encargar tanto física como virtualmente lo que necesites</p>
 
+      {/* FUTURA IMPLEMENTACION */}
       <a href="#" class="button">Para guías de como encargar productos de forma virtual hacé click acá</a>
       
       <p><strong>Dirección:</strong> Calle x , Bahía Blanca</p>

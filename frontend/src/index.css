@@ -22,6 +22,16 @@
 }
 
 /* Carrusel productos --------------------------------- */
+
+.carrusel-productos h2{
+  color: var(--indigo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem 0 0.3rem;
+}
+
+/* contenedor */
 .carrusel-contenedor {
   display: flex;
   flex-wrap: nowrap;
