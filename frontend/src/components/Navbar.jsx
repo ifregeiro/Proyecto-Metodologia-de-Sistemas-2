@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./style_navbar.css";
-import imgCarabelli_logo from "../img/Carabelli_logo.png";
+import imgLogo from "../img/Logo.png";
 
 
 export default function Navbar() {
@@ -14,8 +14,8 @@ export default function Navbar() {
 
       {/* Logo */}
       <div className="logo">
-        <img src={imgCarabelli_logo} alt="Logo farmacia" />
-        <h1>Farmacia Carabelli</h1>
+        <img src={imgLogo} alt="Logo farmacia" />
+        <h1>Farmacia</h1>
       </div>
 
       {/* más adelante una sección derecha (usuario, carrito, etc.) */}
