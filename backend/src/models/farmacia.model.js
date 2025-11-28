@@ -41,7 +41,7 @@ export class FarmaciaModel {
         const [productos] = await connection.query(
             `SELECT id_prod, nombre, descripcion, precio, stock, id_cat, id_subcat
             FROM producto
-            WHERE id = id_prod;`,
+            WHERE id_prod = ?;`,
             [id]
         );
 
@@ -81,15 +81,6 @@ export class FarmaciaModel {
     }
 
     static async deleteById ({ id }) {
-        const {
-            nombre,
-            descripcion,
-            precio,
-            stock,
-            id_cat,
-            id_subcat
-        } = input
-
         try{
             const [productos] = await connection.query(
             `DELETE FROM producto WHERE id_prod = ?;`,
@@ -101,6 +92,14 @@ export class FarmaciaModel {
         }
     }
     static async updateById ({id, input}) {
+        const {
+            nombre,
+            descripcion,
+            precio,
+            stock,
+            id_cat,
+            id_subcat
+        } = input
         try{
             const [ productos ] = await connection.query(
                 `UPDATE producto 

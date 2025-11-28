@@ -13,7 +13,7 @@ export const createServer = ({farmaciaModel}) => {
     app.use(corsMiddleware());
     app.use(rateLimit({
         windowMs: 60 * 1000, // 1 minuto
-        max: 100 
+        max: 100
     }));
     
     // Ruta de los productos
