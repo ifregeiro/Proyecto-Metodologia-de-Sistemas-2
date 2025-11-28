@@ -1,5 +1,5 @@
 import { createServer } from "./server.js";
-import { FarmaciaModel } from "./models/farmaciaDB.js";
+import { FarmaciaModel } from "./models/farmacia.model.js";
 
 const app = createServer({ farmaciaModel: FarmaciaModel});    
 
