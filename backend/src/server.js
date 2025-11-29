@@ -3,37 +3,38 @@ import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 import 'dotenv/config';
 import { corsMiddleware } from './middlewares/cors.js';
-import { createRutaProducto } from './routes/productos.routes.js';
+import { productosRouter } from './routes/productos.routes.js';
 
 
-export const createServer = ({farmaciaModel}) => {
-    const app = express();
-    app.use(json());
-    app.use(helmet());
-    app.use(corsMiddleware());
-    app.use(rateLimit({
-        windowMs: 60 * 1000, // 1 minuto
-        max: 5,
-        handler: (req, res) => {
-            res.status(429).send('Demasiados intentos en poco tiempo, inténtalo más tarde.')
-        }
-    }));
+export const appFarmacia = express();
+
+appFarmacia.use(json());
+
+appFarmacia.use(helmet());
+
+appFarmacia.use(corsMiddleware());
+
+appFarmacia.use(rateLimit({
+    windowMs: 60 * 1000, // 1 minuto
+    max: 5,
+    handler: (req, res) => {
+        res.status(429).send('Demasiados intentos en poco tiempo, inténtalo más tarde.')
+    }
+}));
     
-    // Ruta de los productos
-    app.use('/productos', createRutaProducto({ farmaciaModel }));
+// Ruta de los productos
+appFarmacia.use('/productos', productosRouter);
 
-    // Healt del servidor
-    app.get('/health', (req, res) => {
-        res.status(200).json({
-            status: 'OK',
-            timestamp: new Date().toISOString(),
-            uptime: process.uptime()
-        });
+// Healt del servidor
+appFarmacia.get('/health', (req, res) => {
+    res.status(200).json({
+        status: 'OK',
+        timestamp: new Date().toISOString(),
+        uptime: process.uptime()
     });
+});
 
-    app.use((err, req, res, next) => { 
+appFarmacia.use((err, req, res, next) => { 
     console.error('Error:', err);
     res.status(500).json({error: 'Error interno del servidor.'});
-    });
-    return app;
-}
+});

@@ -3,7 +3,7 @@ import { sequelize } from '../database/database.js'
 
 export const SubCategoria = sequelize.define('sub_categoria', {
     id_subcat: {
-        type: DateTypes.INTEGER,
+        type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true
     },

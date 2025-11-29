@@ -1,7 +1,7 @@
-import { createServer } from "./server.js";
+import { appFarmacia } from "./server.js";
 import { FarmaciaModel } from "./models/farmacia.model.js";
 
-const app = createServer({ farmaciaModel: FarmaciaModel});    
+const app = appFarmacia;    
 
 const PORT = process.env.PORT || 8080;
 

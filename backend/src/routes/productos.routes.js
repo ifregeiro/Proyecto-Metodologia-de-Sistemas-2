@@ -1,25 +1,23 @@
 import { Router } from 'express'
 import { ProductoController } from '../controllers/productos.controller.js'
 
-export const createRutaProducto = ({ farmaciaModel }) => {
-    const productosRouter = Router()
+export const productosRouter = Router()
 
-    const controller = new ProductoController({ farmaciaModel })
 // Devolver todos los productos
-    productosRouter.get('/', controller.getAllProductos)
+productosRouter.get('/', ProductoController.getAllProductos)
 
 // Devolder producto por id
-    productosRouter.get('/:id', controller.getProductoById)
+productosRouter.get('/:id', ProductoController.getProductoById)
 
 // Devolver productos por categoría
-    productosRouter.get('/categoria/:id_cat', controller.getProductosPorCategoria)
+productosRouter.get('/categoria/:id_cat', ProductoController.getProductosPorCategoria)
 // Crear producto nuevo
-    productosRouter.post('/', controller.createProducto)
+productosRouter.post('/', ProductoController.createProducto)
 
 // Eliminar producto por id
-    productosRouter.delete('/:id', controller.deleteProducto)
-// Actualizar información de un producto por id
-    productosRouter.put('/:id', controller.updateProducto)
+productosRouter.delete('/:id', ProductoController.deleteProducto)
 
-    return productosRouter
-}
+// Actualizar información de un producto por id
+productosRouter.put('/:id', ProductoController.updateProducto)
+
+
