@@ -1,10 +1,10 @@
 import { Router } from 'express'
-import { FarmaciaController } from '../controllers/farmacia.controller.js'
+import { ProductoController } from '../controllers/productos.controller.js'
 
 export const createRutaProducto = ({ farmaciaModel }) => {
     const productosRouter = Router()
 
-    const controller = new FarmaciaController({ farmaciaModel })
+    const controller = new ProductoController({ farmaciaModel })
 // Devolver todos los productos
     productosRouter.get('/', controller.getAllProductos)
 

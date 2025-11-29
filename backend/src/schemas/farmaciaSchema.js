@@ -30,11 +30,3 @@ export const ProductoSchema = z.object({
         })
 
 })
-
-export function validarProducto(p) {
-    return ProductoSchema.safeParseAsync(p)
-}
-
-export function validacionParcialProducto(p) {
-    return ProductoSchema.partial().safeParseAsync(p)
-}

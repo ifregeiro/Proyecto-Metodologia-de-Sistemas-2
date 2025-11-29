@@ -1,4 +1,4 @@
-import { ConnectionAcquireTimeoutError, DataTypes } from 'sequelize'
+import { DataTypes } from 'sequelize'
 import { sequelize } from '../database/database.js'
 import { Categoria } from './Categoria.model.js'
 import { SubCategoria } from './SubCategoria.model.js'
