@@ -3,14 +3,15 @@ import { ProductoController } from '../controllers/productos.controller.js'
 
 export const productosRouter = Router()
 
-// Devolver todos los productos
-productosRouter.get('/', ProductoController.getAllProductos)
+// Devolver productos por categoría
+productosRouter.get('/categoria/:id_cat', ProductoController.getProductosPorCategoria)
 
 // Devolder producto por id
 productosRouter.get('/:id', ProductoController.getProductoById)
 
-// Devolver productos por categoría
-productosRouter.get('/categoria/:id_cat', ProductoController.getProductosPorCategoria)
+// Devolver todos los productos
+productosRouter.get('/', ProductoController.getAllProductos)
+
 // Crear producto nuevo
 productosRouter.post('/', ProductoController.createProducto)
 
