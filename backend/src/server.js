@@ -1,10 +1,11 @@
 import express, { json } from 'express';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import 'dotenv/config';
+import dotenv from "dotenv"
 import { corsMiddleware } from './middlewares/cors.js';
 import { productosRouter } from './routes/productos.routes.js';
 
+dotenv.config();
 
 export const appFarmacia = express();
 

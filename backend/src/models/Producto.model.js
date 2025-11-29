@@ -16,11 +16,11 @@ export const Producto = sequelize.define('producto', {
     },
     descripcion: DataTypes.TEXT,
     precio: {
-        types: DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     stock: {
-        types: DataTypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
     }
 })

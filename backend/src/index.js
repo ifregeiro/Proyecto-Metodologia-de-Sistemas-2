@@ -1,5 +1,4 @@
 import { appFarmacia } from "./server.js";
-import { FarmaciaModel } from "./models/farmacia.model.js";
 
 const app = appFarmacia;    
 
