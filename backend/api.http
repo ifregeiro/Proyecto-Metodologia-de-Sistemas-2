@@ -1,7 +1,7 @@
 ### Recupera todos los productos
 GET http://localhost:5000/producto
 
-### Recupera película por id
+### Recupera producto por id
 GET http://localhost:5000/productos/1
 
 ### Recupera todos los productos por categoría

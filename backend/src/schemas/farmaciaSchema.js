@@ -20,12 +20,6 @@ export const ProductoSchema = z.object({
             message:"Hay una o más categorías inexistentes en la base de datos."
         }),
     
-        /*z.enum([ 'Cremas', 'Cuidado de la piel', 'Suplementos y vitaminas', 'Higiene personal', 'Maquillajes', 'Medicamentos de venta libre']),
-        {
-            required_error: 'Se requiere al menos una categoria por producto.',
-            invalid_type_error: 'La categoria debe ser un arreglo de enumeraciones de Categorías.'
-        }*/
-    
     sub_categoria: z
         .array(z.string())
         .refine(async (subcats) => {
@@ -36,11 +30,3 @@ export const ProductoSchema = z.object({
         })
 
 })
-
-export function validarProducto(p) {
-    return ProductoSchema.safeParseAsync(p)
-}
-
-export function validacionParcialProducto(p) {
-    return ProductoSchema.partial().safeParseAsync(p)
-}
