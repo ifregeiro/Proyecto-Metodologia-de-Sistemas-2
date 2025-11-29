@@ -1,10 +1,12 @@
 export default function ProductCard({ producto }) {
   return (
-    <div className="product-card">
-      <img src={producto.imagen} alt={producto.nombre} />
+    <div className="card">
       <h3>{producto.nombre}</h3>
-      <p>{producto.categoria}</p>
-      <p>${producto.precio}</p>
+      <p><strong>Precio:</strong> ${producto.precio}</p>
+
+      {producto.Categoria && (
+        <p><strong>Categoría:</strong> {producto.Categoria.nombre}</p>
+      )}
     </div>
   );
 }

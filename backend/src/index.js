@@ -1,9 +1,12 @@
 import { appFarmacia } from "./server.js";
+import dotenv from "dotenv";
 
-const app = appFarmacia;    
+dotenv.config();
 
-const PORT = process.env.PORT || 8080;
+const app = appFarmacia;   
+
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en puerto ${PORT}`);
-})
+});
