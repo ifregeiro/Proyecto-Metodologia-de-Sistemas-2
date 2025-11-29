@@ -80,7 +80,7 @@ export class FarmaciaModel {
         }
     }
 
-    static async deleteById ({ id }) {
+    static async delete ({ id }) {
         try{
             const [productos] = await connection.query(
             `DELETE FROM producto WHERE id_prod = ?;`,
@@ -91,7 +91,7 @@ export class FarmaciaModel {
             throw new Error('No fue posible borrar el producto.')
         }
     }
-    static async updateById ({id, input}) {
+    static async update ({id, input}) {
         const {
             nombre,
             descripcion,

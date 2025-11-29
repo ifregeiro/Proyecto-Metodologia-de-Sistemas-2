@@ -6,15 +6,20 @@ export const createRutaProducto = ({ farmaciaModel }) => {
 
     const controller = new FarmaciaController({ farmaciaModel })
 // Devolver todos los productos
-    productosRouter.get('/', controller.getAll)
-// Crear producto nuevo
-    productosRouter.post('/', controller.create)
+    productosRouter.get('/', controller.getAllProductos)
+
 // Devolder producto por id
-    productosRouter.get('/:id', controller.getById)
+    productosRouter.get('/:id', controller.getProductoById)
+
+// Devolver productos por categoría
+    productosRouter.get('/categoria/:id_cat', controller.getProductosPorCategoria)
+// Crear producto nuevo
+    productosRouter.post('/', controller.createProducto)
+
 // Eliminar producto por id
-    productosRouter.delete('/:id', controller.delete)
+    productosRouter.delete('/:id', controller.deleteProducto)
 // Actualizar información de un producto por id
-    productosRouter.put('/:id', controller.update)
+    productosRouter.put('/:id', controller.updateProducto)
 
     return productosRouter
 }
