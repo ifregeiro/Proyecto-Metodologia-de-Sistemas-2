@@ -1,15 +1,12 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
+import { appFarmacia } from "./server.js";
+import dotenv from "dotenv";
 
-const app = express();
+dotenv.config();
+
+const app = appFarmacia;   
+
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json());
-
-// Importar rutas
-const productosRoutes = require('./src/routes/productos');
-app.use('/api/productos', productosRoutes);
-
-app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
+});
