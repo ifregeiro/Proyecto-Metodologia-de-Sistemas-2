@@ -31,7 +31,7 @@ export class ProductoController {
     }
 
     // Función para obtener productos por categoría
-    static async getProductosPorCategoria (res, req, next) {
+    static async getProductosPorCategoria (req, res, next) {
         try {
             const { id_cat }  = req.params;
             const productos = await Producto.findAll({ 
