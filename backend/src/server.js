@@ -31,11 +31,12 @@ appFarmacia.get('/health', (req, res) => {
     res.status(200).json({
         status: 'OK',
         timestamp: new Date().toISOString(),
-        uptime: process.uptime()
+        uptime: process.uptime(),
     });
 });
 
-appFarmacia.use((err, req, res, next) => { 
+//Manejo global de errores
+appFarmacia.use((err, req, res, next) => {
     console.error('Error:', err);
-    res.status(500).json({error: 'Error interno del servidor.'});
+    res.status(500).json({ error: 'Error interno del servidor.' });
 });

@@ -1,0 +1,41 @@
+:root{
+    --blanco: #fbfbed;
+    --beige: #dcdcb9;
+    --negro: #1a1a1a;
+    --indigo: #659dff;
+    --celeste: #92ccf8;
+    --aqua: #66b398;
+    --musgo: #64956d;
+}
+
+.info {
+  background-color: var(--beige);
+  padding: 60px 0px;
+  font-family: 'Arial', sans-serif;
+  color: var(--blanco);
+}
+
+.info .container {
+  width: auto;
+  margin: 0 auto;
+  background-color: var(--aqua);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.info h2 {
+  color: var(--blanco);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.info p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.info p strong {
+  color: var(--beige);
+}

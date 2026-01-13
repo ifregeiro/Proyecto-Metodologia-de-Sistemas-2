@@ -5,64 +5,80 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--beige);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+    --blanco: #fbfbed;
+    --beige: #dcdcb9;
+    --negro: #1a1a1a;
+    --indigo: #659dff;
+    --celeste: #92ccf8;
+    --aqua: #66b398;
+    --musgo: #64956d;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+/* Carrusel productos --------------------------------- */
 
-body {
-  margin: 0;
+.carrusel-productos h2{
+  color: var(--indigo);
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem 0 0.3rem;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* contenedor */
+.carrusel-contenedor {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem; /* evita que se corten las tarjetas */
+  scrollbar-width: none; /* Firefox */
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* ocultar scrollbar en Chrome */
+.carrusel-contenedor::-webkit-scrollbar {
+  display: none;
+}
+
+/* botones del carrusel */
+.carrusel-botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.btn-izquierda,
+.btn-derecha {
+  background-color: var(--aqua);
+  color: var(--blanco);
+  border: none;
+  border-radius: 5px;
+  width: 45px;
+  height: 45px;
+  font-size: 1.5rem;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* efecto hover */
+.btn-izquierda:hover,
+.btn-derecha:hover {
+  background-color: var(--indigo);
+  transform: scale(1.1);
+}
+
+/* efecto clic */
+.btn-izquierda:active,
+.btn-derecha:active {
+  transform: scale(0.95);
+  background-color: var(--celeste);
 }
