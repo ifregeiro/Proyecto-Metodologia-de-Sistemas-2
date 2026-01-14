@@ -6,7 +6,6 @@ import imgVia_oral from "../img/img_categorias/13.png";
 import imgNasales from "../img/img_categorias/14.png";
 import imgRectales from "../img/img_categorias/15.png";
 
-
 export default function Cat_venta_libre() {
   return (
     <>

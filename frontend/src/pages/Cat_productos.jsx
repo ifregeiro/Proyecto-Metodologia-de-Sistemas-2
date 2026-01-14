@@ -13,7 +13,6 @@ import imgCosmeticos from "../img/img_categorias/9.png";
 import imgPerfumes from "../img/img_categorias/10.png";
 import imgSuplementos from "../img/img_categorias/11.png";
 
-
 export default function Cat_productos() {
   return (
     <main className="categorias">
@@ -21,7 +20,7 @@ export default function Cat_productos() {
         <Link to="/categorias/venta_libre" className="ver-detalle">
           <img src={imgVentaLibre} alt="medicamentos_de_venta_libre" />
           <h3>Medicamentos de venta libre</h3>
-        </Link> 
+        </Link>
       </article>
 
       <article className="cat-card">

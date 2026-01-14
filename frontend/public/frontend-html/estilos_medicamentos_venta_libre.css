@@ -1,57 +1,57 @@
 :root {
-    --blanco: #fbfbed;
-    --beige: #dcdcb9;
-    --negro: #1a1a1a;
-    --indigo: #659dff;
-    --celeste: #92ccf8;
-    --aqua: #66b398;
-    --musgo: #64956d;
+  --blanco: #fbfbed;
+  --beige: #dcdcb9;
+  --negro: #1a1a1a;
+  --indigo: #659dff;
+  --celeste: #92ccf8;
+  --aqua: #66b398;
+  --musgo: #64956d;
 }
 
 body {
-    background-color: var(--beige);
+  background-color: var(--beige);
 }
 
 /* titulo y logo ------------------------ */
 .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: var(--blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--blanco);
 }
 
 .logo-container img {
-    height: 50px;
+  height: 50px;
 }
 
 /* barra de navegación ---------------------- */
 header {
-    background: var(--aqua);
-    color: var(--blanco);
-    padding: 1rem 0;
-    border-radius: 5px;
+  background: var(--aqua);
+  color: var(--blanco);
+  padding: 1rem 0;
+  border-radius: 5px;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul {
-    display: flexbox;
-    list-style: none;
+  display: flexbox;
+  list-style: none;
 }
 
 .nav ul li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 ul li a {
-    color: var(--blanco);
-    text-decoration: none;
-    font-weight: bold;
+  color: var(--blanco);
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /* categorias de productos ----------------------------*/
@@ -82,7 +82,7 @@ ul li a {
 }
 
 .cat-card:hover img {
-    filter: brightness(80%);
+  filter: brightness(80%);
 }
 
 .cat-card h3 {
@@ -90,8 +90,8 @@ ul li a {
   margin: 0.8rem 0 0.3rem;
 }
 
-.cat-card a{
-    text-decoration: none;
+.cat-card a {
+  text-decoration: none;
 }
 
 .precio {
@@ -101,60 +101,58 @@ ul li a {
 
 /* Botones ----------------------------------- */
 .button {
-    display: block;
-    background: var(--celeste);
-    color: var(--blanco);
-    padding: 0.8rem;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    
+  display: block;
+  background: var(--celeste);
+  color: var(--blanco);
+  padding: 0.8rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
 .button:hover {
-    background: var(--indigo);
+  background: var(--indigo);
 }
 
 /* info farmacia --------------------------------------- */
 
-h2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: var(--indigo);
+h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--indigo);
 }
 
-div p{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    color: var(--indigo);
+div p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: var(--indigo);
 }
-
 
 /* footer ---------------------------------------- */
 footer {
-    background: var(--aqua);
-    padding: 1rem 0;
-    border-radius: 5px;
-    text-align: center;
+  background: var(--aqua);
+  padding: 1rem 0;
+  border-radius: 5px;
+  text-align: center;
 }
 
-footer p{
-    color: var(--blanco);
+footer p {
+  color: var(--blanco);
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .socials a {
-    color: var(--blanco);
-    margin: 0 5px;
-    text-decoration: none;
+  color: var(--blanco);
+  margin: 0 5px;
+  text-decoration: none;
 }

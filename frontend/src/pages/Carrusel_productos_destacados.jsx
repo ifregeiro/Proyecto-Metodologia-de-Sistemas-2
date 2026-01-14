@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import React from "react";
-import '../index.css'
+import "../index.css";
 
 export default function Carrusel() {
   useEffect(() => {
@@ -19,7 +19,6 @@ export default function Carrusel() {
 
   return (
     <section className="carrusel-productos">
-      
       <h2 className="titulo-carrusel">Productos destacados</h2>
 
       <div className="carrusel-botones">
@@ -42,7 +41,7 @@ export default function Carrusel() {
             <h3>Dermaglós Facial BB Cream</h3>
             <p className="precio">$30.200</p>
           </a>
-        </article> 
+        </article>
 
         <article className="producto">
           <a href="#">
@@ -88,8 +87,8 @@ export default function Carrusel() {
   );
 }
 
-
-{/* 
+{
+  /* 
   export default function Carrusel() {
   return (
     <section className="carrusel-productos">
@@ -138,7 +137,5 @@ export default function Carrusel() {
     </section>
   );
 }
-*/}
-
-
-
+*/
+}

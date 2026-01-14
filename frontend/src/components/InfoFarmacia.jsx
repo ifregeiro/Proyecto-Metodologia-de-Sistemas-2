@@ -4,17 +4,25 @@ import "./style_info_farmacia.css";
 export default function InfoFarmacia() {
   return (
     <section class="info">
-    <div class="container">
-      <h2>Nosotros</h2>
-      <p>Contamos con profesionales para encargar tanto física como virtualmente lo que necesites</p>
+      <div class="container">
+        <h2>Nosotros</h2>
+        <p>
+          Contamos con profesionales para encargar tanto física como
+          virtualmente lo que necesites
+        </p>
 
-      {/* FUTURA IMPLEMENTACION */}
-      <a href="#" class="button">Para guías de como encargar productos de forma virtual hacé click acá</a>
-      
-      <p><strong>Dirección:</strong> Calle x , Bahía Blanca</p>
-      <p><strong>Teléfono:</strong> 291 --- ---- </p>
+        {/* FUTURA IMPLEMENTACION */}
+        <a href="#" class="button">
+          Para guías de como encargar productos de forma virtual hacé click acá
+        </a>
 
-    </div>
+        <p>
+          <strong>Dirección:</strong> Calle x , Bahía Blanca
+        </p>
+        <p>
+          <strong>Teléfono:</strong> 291 --- ----{" "}
+        </p>
+      </div>
     </section>
   );
 }
