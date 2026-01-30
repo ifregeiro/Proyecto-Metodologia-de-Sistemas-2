@@ -1,28 +1,28 @@
-:root{
-    --blanco: #fbfbed;
-    --beige: #dcdcb9;
-    --negro: #1a1a1a;
-    --indigo: #659dff;
-    --celeste: #92ccf8;
-    --aqua: #66b398;
-    --musgo: #64956d;
+:root {
+  --blanco: #fbfbed;
+  --beige: #dcdcb9;
+  --negro: #1a1a1a;
+  --indigo: #659dff;
+  --celeste: #92ccf8;
+  --aqua: #66b398;
+  --musgo: #64956d;
 }
 
 /* footer ---------------------------------------- */
 footer {
-    background: var(--aqua);
-    text-align: center;
-    padding: 1rem;
-    color: var(--blanco);
-    border-radius: 10px 10px 0 0;
+  background: var(--aqua);
+  text-align: center;
+  padding: 1rem;
+  color: var(--blanco);
+  border-radius: 10px 10px 0 0;
 }
 
 .socials a {
-    color: var(--amarillo);
-    margin: 0 5px;
-    text-decoration: none;
+  color: var(--amarillo);
+  margin: 0 5px;
+  text-decoration: none;
 }
 
-footer p{
-    color: var(--beige);
+footer p {
+  color: var(--beige);
 }

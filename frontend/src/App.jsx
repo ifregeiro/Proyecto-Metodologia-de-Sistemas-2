@@ -34,10 +34,6 @@ import Cat_medicamentos_via_oral from "./pages/Cat_medicamentos_via_oral";
 import Cat_medicamentos_nasales from "./pages/Cat_medicamentos_nasales";
 import Cat_medicamentos_rectales from "./pages/Cat_medicamentos_rectales";
 
-
-
-
-
 function App() {
   return (
     <Router>
@@ -61,36 +57,64 @@ function App() {
 
         {/* Página de categorías */}
         <Route path="/categorias/bebes" element={<Cat_bebes />} />
-        <Route path="/categorias/cuidado_capilar" element={<Cat_cuidado_capilar />} />
+        <Route
+          path="/categorias/cuidado_capilar"
+          element={<Cat_cuidado_capilar />}
+        />
         <Route path="/categorias/intimo" element={<Cat_intimo />} />
         <Route path="/categorias/ortopedia" element={<Cat_ortopedia />} />
         <Route path="/categorias/dispositivos" element={<Cat_dispositivos />} />
-        <Route path="/categorias/proteccion" element={<Cat_proteccion/>} />
-        <Route path="/categorias/perfumes" element={<Cat_perfumes/>} />
-        <Route path="/categorias/cosmetica" element={<Cat_cosmetica/>} />
-        <Route path="/categorias/suplementos" element={<Cat_suplementos/>} />
+        <Route path="/categorias/proteccion" element={<Cat_proteccion />} />
+        <Route path="/categorias/perfumes" element={<Cat_perfumes />} />
+        <Route path="/categorias/cosmetica" element={<Cat_cosmetica />} />
+        <Route path="/categorias/suplementos" element={<Cat_suplementos />} />
 
         {/* Subpáginas de categorías */}
         <Route path="/categorias/higiene" element={<Cat_higiene_personal />} />
         <Route path="/categorias/venta_libre" element={<Cat_venta_libre />} />
-        
 
         {/* Subpáginas de higiene personal */}
-        <Route path="/categorias/higiene/primeros_auxilios" element={<Cat_primeros_auxilios />} />
-        <Route path="/categorias/higiene/afeitado_y_depilacion" element={<Cat_afeitado_y_depilacion />} />
-        <Route path="/categorias/higiene/cuidado_facial" element={<Cat_cuidado_facial />} />
-        <Route path="/categorias/higiene/cuidado_corporal" element={<Cat_cuidado_corporal />} />
-        <Route path="/categorias/higiene/cuidado_bucal" element={<Cat_cuidado_bucal />} />
-        
+        <Route
+          path="/categorias/higiene/primeros_auxilios"
+          element={<Cat_primeros_auxilios />}
+        />
+        <Route
+          path="/categorias/higiene/afeitado_y_depilacion"
+          element={<Cat_afeitado_y_depilacion />}
+        />
+        <Route
+          path="/categorias/higiene/cuidado_facial"
+          element={<Cat_cuidado_facial />}
+        />
+        <Route
+          path="/categorias/higiene/cuidado_corporal"
+          element={<Cat_cuidado_corporal />}
+        />
+        <Route
+          path="/categorias/higiene/cuidado_bucal"
+          element={<Cat_cuidado_bucal />}
+        />
+
         {/* Subpáginas de venta libre */}
-        <Route path="/categorias/venta_libre/medicamentos_topicos" element={<Cat_medicamentos_topicos />} />
-        <Route path="/categorias/venta_libre/medicamentos_via_oral" element={<Cat_medicamentos_via_oral />} />
-        <Route path="/categorias/venta_libre/medicamentos_nasales" element={<Cat_medicamentos_nasales />} />
-        <Route path="/categorias/venta_libre/medicamentos_rectales" element={<Cat_medicamentos_rectales />} />
-        
+        <Route
+          path="/categorias/venta_libre/medicamentos_topicos"
+          element={<Cat_medicamentos_topicos />}
+        />
+        <Route
+          path="/categorias/venta_libre/medicamentos_via_oral"
+          element={<Cat_medicamentos_via_oral />}
+        />
+        <Route
+          path="/categorias/venta_libre/medicamentos_nasales"
+          element={<Cat_medicamentos_nasales />}
+        />
+        <Route
+          path="/categorias/venta_libre/medicamentos_rectales"
+          element={<Cat_medicamentos_rectales />}
+        />
+
         {/* "/categorias/venta_libre/medicamentos_rectales" (concatenacion de los links que aparecen en el jsx) 
         element={<Cat_medicamentos_rectales />} (lo que esta al lado de import en naranja) */}
-        
       </Routes>
 
       <Footer />

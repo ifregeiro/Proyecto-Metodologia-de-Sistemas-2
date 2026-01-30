@@ -1,31 +1,33 @@
 import { Link } from "react-router-dom";
-import './style_productos.css'
+import "./style_productos.css";
 import duck from "../img/duck.png"; // imagen local en /src/img/duck.png
 import React from "react";
 
-{/* REFERENCIA DE DATOS */}
+{
+  /* REFERENCIA DE DATOS */
+}
 const productos = [
   {
     id: 1,
     nombre: "Nombre del producto 1",
     precio: "$8.500",
     imagen: duck,
-    ruta: "#"
+    ruta: "#",
   },
   {
     id: 2,
     nombre: "Nombre del producto 2",
     precio: "$7.900",
     imagen: duck,
-    ruta: "#"
+    ruta: "#",
   },
   {
     id: 3,
     nombre: "Nombre del producto 3",
     precio: "$6.200",
     imagen: duck,
-    ruta: "#"
-  }
+    ruta: "#",
+  },
 ];
 
 function Cat_medicamentos_nasales() {

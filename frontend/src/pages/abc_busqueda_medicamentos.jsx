@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./abc_busqueda_medicamentos.css";
 
-{/* FUTURA IMPLEMENTACION */}
+{
+  /* FUTURA IMPLEMENTACION */
+}
 export default function Abc_busqueda_medicamentos() {
   const [letraSeleccionada, setLetraSeleccionada] = useState(null);
 
@@ -24,7 +26,10 @@ export default function Abc_busqueda_medicamentos() {
           </button>
         ))}
 
-        <button onClick={() => setLetraSeleccionada(null)} className="letra-btn">
+        <button
+          onClick={() => setLetraSeleccionada(null)}
+          className="letra-btn"
+        >
           Todos
         </button>
       </div>

@@ -1,18 +1,18 @@
 :root {
-    --blanco: #fbfbed;
-    --beige: #dcdcb9;
-    --negro: #1a1a1a;
-    --indigo: #659dff;
-    --celeste: #92ccf8;
-    --aqua: #66b398;
-    --musgo: #64956d;
+  --blanco: #fbfbed;
+  --beige: #dcdcb9;
+  --negro: #1a1a1a;
+  --indigo: #659dff;
+  --celeste: #92ccf8;
+  --aqua: #66b398;
+  --musgo: #64956d;
 }
 
 /* grilla de productos -----------------------*/
 .productos-contenedor {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 1.5rem;                           
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
   padding: 1.5rem;
 }
 
