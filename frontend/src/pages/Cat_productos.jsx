@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./style_Cat.css";
 import React from "react";
+
 import imgVentaLibre from "../img/img_categorias/1.png";
 import imgHigiene from "../img/img_categorias/2.png";
 import imgBebes from "../img/img_categorias/3.png";

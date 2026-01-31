@@ -37,7 +37,6 @@ import Cat_medicamentos_rectales from "./pages/Cat_medicamentos_rectales";
 
 
 
-
 function App() {
   return (
     <Router>

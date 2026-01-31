@@ -21,7 +21,7 @@
   flex: 0 0 auto;
   width: 220px;
   scroll-snap-align: center;
-  background: var(--celeste);
+  background: var(--musgo);
   border-radius: 12px;
   text-align: center;
   padding: 10px;
@@ -54,7 +54,7 @@
 
 /* nombre del producto */
 .producto h3 {
-  color: var(--indigo);
+  color: var(--blanco);
   margin: 0.5rem 0 0.2rem;
   font-size: 1rem;
   min-height: 2.4em; /* iguala alturas por líneas */
@@ -62,7 +62,7 @@
 
 /* precio */
 .precio {
-  color: var(--aqua);
+  color: var(--beige);
   font-weight: bold;
   margin-top: auto;
   margin-bottom: 0.5rem;

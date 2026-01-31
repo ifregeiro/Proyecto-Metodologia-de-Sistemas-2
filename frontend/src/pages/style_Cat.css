@@ -19,7 +19,7 @@
 }
 
 .cat-card {
-  background: var(--celeste);
+  background: var(--musgo);
   border-radius: 10px;
   box-shadow: none;
   text-align: center;
@@ -41,17 +41,12 @@
 }
 
 .cat-card h3 {
-  color: var(--indigo);
+  color: var(--beige);
   margin: 0.8rem 0 0.3rem;
 }
 
 .cat-card a{
     text-decoration: none;
-}
-
-.precio {
-  color: var(--aqua);
-  font-weight: 600;
 }
 
 /* Botones ----------------------------------- */

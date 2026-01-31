@@ -49,7 +49,7 @@
 
 .nav-izquierda a:hover, .nav-derecha a:hover,
 .nav-derecha a.activo {
-    color: var(--celeste);
+    color: var(--negro);
 }
 
 /* Logo */

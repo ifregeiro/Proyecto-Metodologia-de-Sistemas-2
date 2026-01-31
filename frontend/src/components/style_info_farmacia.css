@@ -12,7 +12,7 @@
   background-color: var(--beige);
   padding: 60px 0px;
   font-family: 'Arial', sans-serif;
-  color: var(--blanco);
+  color: var(--negro);
 }
 
 .info .container {
@@ -25,7 +25,7 @@
 }
 
 .info h2 {
-  color: var(--blanco);
+  color: var(--beige);
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -38,4 +38,22 @@
 
 .info p strong {
   color: var(--beige);
+}
+
+/* boton info ------------------------------- */
+
+.button_info {
+  background-color: var(--celeste);
+  color: var(--negro);
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  
+}
+
+.button_info:hover{
+  background-color: var(--indigo);
 }

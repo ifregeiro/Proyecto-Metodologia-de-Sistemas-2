@@ -24,10 +24,12 @@
 /* Carrusel productos --------------------------------- */
 
 .carrusel-productos h2{
-  color: var(--indigo);
+  background-color: var(--musgo);
+  color: var(--beige);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
   margin: 0.8rem 0 0.3rem;
 }
 
