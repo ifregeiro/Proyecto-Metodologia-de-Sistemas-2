@@ -1,0 +1,135 @@
+:root {
+  --blanco: #fbfbed;
+  --beige: #dcdcb9;
+  --negro: #1a1a1a;
+  --indigo: #659dff;
+  --celeste: #92ccf8;
+  --aqua: #66b398;
+  --musgo: #64956d;
+}
+
+/* --- producto ----------------------------------- --- */
+.producto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem 5%;
+  justify-content: center;
+  background: var(--aqua);
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+/* galería */
+.galeria-producto {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.miniaturas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.miniaturas img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.miniaturas img:hover {
+  border-color: var(--indigo);
+}
+
+.imagen-principal img {
+  width: 355px;
+  height: 355px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* info producto */
+.info-producto {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.titulo-producto {
+  color: var(--blanco);
+  padding: 0px;
+}
+
+.info-producto h2 {
+  font-size: 1.5rem;
+}
+
+.subtitulo {
+  color: var(--blanco);
+}
+
+.precio-final {
+  color: var(--blanco);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cuotas {
+  color: var(--blanco);
+  font-size: 0.9rem;
+}
+
+.colores {
+  color: var(--blanco);
+}
+
+.colores .opciones-color {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.color {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid var(--blanco);
+  cursor: pointer;
+}
+
+.descripcion {
+  font-size: 0.95rem;
+  color: var(--blanco);
+}
+
+/* --- DETALLES --- */
+.detalles {
+  background: var(--celeste);
+  margin: 2rem auto;
+  padding: 2rem 5%;
+  max-width: 900px;
+  border-radius: 10px;
+}
+
+.detalles h2 {
+  color: var(--indigo);
+  margin-bottom: 0.8rem;
+}
+
+.detalles ul {
+  list-style: none;
+  padding: 0;
+}
+
+.detalles li {
+  color: var(--beige);
+  margin-bottom: 0.3rem;
+}

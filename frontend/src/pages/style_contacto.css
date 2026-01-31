@@ -1,0 +1,32 @@
+:root {
+  --blanco: #fbfbed;
+  --beige: #dcdcb9;
+  --negro: #1a1a1a;
+  --indigo: #659dff;
+  --celeste: #92ccf8;
+  --aqua: #66b398;
+  --musgo: #64956d;
+}
+
+.contacto h2 {
+  color: var(--indigo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem 0 0.3rem;
+}
+
+.contacto p {
+  color: var(--indigo);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacto a {
+  color: var(--musgo);
+  text-decoration: none;
+}
