@@ -6,9 +6,9 @@ dotenv.config();
 export const sequelize = new Sequelize(
   process.env.DB_NAME || "webfarmaciadb", // webfarmaciadb
   process.env.DB_USER || "root", // root
-  process.env.DB_PASSWORD || "Nachoo4488", // tu contraseña
+  process.env.DB_PASSWORD || "7220_leobarT", // tu contraseña
   {
-    ost: process.env.DB_HOST, // localhost
+    host: process.env.DB_HOST, // localhost
     dialect: "mysql",
     logging: false,
     define: {
