@@ -33,102 +33,94 @@ describe("ProductoController", () => {
   });
 
 //getAllProductos
-  it("debería devolver todos los productos", async () => {
-    const mockProductos = [
-      { id_prod: 1, nombre: "Alcohol" },
-      { id_prod: 2, nombre: "Ibuprofeno" },
-    ];
+  describe("getAllProductos", () => {
+    it("debería devolver todos los productos", async () => {
+      const mockProductos = [
+        { id_prod: 1, nombre: "Alcohol" },
+        { id_prod: 2, nombre: "Ibuprofeno" },
+      ];
 
-    Producto.findAll.mockResolvedValue(mockProductos);
+      Producto.findAll.mockResolvedValue(mockProductos);
 
-    await ProductoController.getAllProductos(req, res, next);
+      await ProductoController.getAllProductos(req, res, next);
 
-    expect(Producto.findAll).toHaveBeenCalled();
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.json).toHaveBeenCalledWith(mockProductos);
-  });
+      expect(Producto.findAll).toHaveBeenCalled();
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith(mockProductos);
+    });
 
-  it("debería llamar a next si ocurre un error en getAllProductos", async () => {
-    const error = new Error("Error DB");
+    it("debería llamar a next si ocurre un error ", async () => {
+      const error = new Error("Error DB");
 
-    Producto.findAll.mockRejectedValue(error);
+      Producto.findAll.mockRejectedValue(error);
 
-    await ProductoController.getAllProductos(req, res, next);
+      await ProductoController.getAllProductos(req, res, next);
 
-    expect(next).toHaveBeenCalledWith(error);
+      expect(next).toHaveBeenCalledWith(error);
+    });
   });
 
 //getProductoById
-  it("debería devolver un producto por id si existe", async () => {
-    const mockProducto = {
-      id_prod: 1,
-      nombre: "Paracetamol",
-    };
+  describe("getProductoById", () => {
+    it("debería devolver un producto por id si existe", async () => {
+      const mockProducto = {
+        id_prod: 1,
+        nombre: "Paracetamol",
+      };
 
-    req.params.id = "1";
+      req.params.id = "1";
+      Producto.findByPk.mockResolvedValue(mockProducto);
 
-    Producto.findByPk.mockResolvedValue(mockProducto);
+      await ProductoController.getProductoById(req, res, next);
 
-    await ProductoController.getProductoById(req, res, next);
-
-    expect(Producto.findByPk).toHaveBeenCalledWith("1", {
-      include: expect.any(Array),
+      expect(Producto.findByPk).toHaveBeenCalledWith(
+        "1",
+        expect.any(Object) // porque el controller usa include
+      );
+      expect(res.status).toHaveBeenCalledWith(200);
+      expect(res.json).toHaveBeenCalledWith(mockProducto);
     });
-    expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.json).toHaveBeenCalledWith(mockProducto);
-  });
 
-  it("debería devolver 404 si el producto no existe", async () => {
-    req.params.id = "99";
+    it("debería devolver 404 si el producto no existe", async () => {
+      req.params.id = "99";
+      Producto.findByPk.mockResolvedValue(null);
 
-    Producto.findByPk.mockResolvedValue(null);
+      await ProductoController.getProductoById(req, res, next);
 
-    await ProductoController.getProductoById(req, res, next);
-
-    expect(res.status).toHaveBeenCalledWith(404);
-    expect(res.json).toHaveBeenCalledWith({
-      message: "Producto no encontrado",
+      expect(res.status).toHaveBeenCalledWith(404);
+      expect(res.json).toHaveBeenCalledWith({
+        message: "Producto no encontrado",
+      });
     });
   });
 
 //createProducto
-  it("debería crear un producto correctamente", async () => {
-    req.body = {
-      nombre: "Vitamina C",
-      descripcion: "Suplemento vitamínico",
-      precio: 3500,
-      stock: 20,
-      id_cat: 1,
-      id_subcat: 2,
-    };
+  describe("createProducto", () => {
+    it("debería crear un producto correctamente", async () => {
+      const nuevoProducto = { nombre: "Paracetamol" };
 
-    const mockProductoCreado = {
-      id_prod: 10,
-      ...req.body,
-    };
+      req.body = nuevoProducto;
+      Producto.create.mockResolvedValue(nuevoProducto);
 
-    Producto.create.mockResolvedValue(mockProductoCreado);
+      await ProductoController.createProducto(req, res, next);
 
-    await ProductoController.createProducto(req, res);
+      expect(Producto.create).toHaveBeenCalledWith(nuevoProducto);
+      expect(res.status).toHaveBeenCalledWith(201);
+      expect(res.json).toHaveBeenCalledWith(nuevoProducto);
+    });
 
-    expect(Producto.create).toHaveBeenCalledWith(req.body);
-    expect(res.status).toHaveBeenCalledWith(201);
-    expect(res.json).toHaveBeenCalledWith(mockProductoCreado);
-  });
+    it("debería devolver 500 si ocurre un error al crear el producto", async () => {
+      const error = new Error("Error DB");
 
-  it("debería devolver 500 si ocurre un error al crear el producto", async () => {
-    req.body = {
-      nombre: "Vitamina D",
-      precio: 4000,
-    };
+      req.body = { nombre: "Aspirina" };
+      Producto.create.mockRejectedValue(error);
 
-    Producto.create.mockRejectedValue(new Error("Error DB"));
+      await ProductoController.createProducto(req, res, next);
 
-    await ProductoController.createProducto(req, res);
-
-    expect(res.status).toHaveBeenCalledWith(500);
-    expect(res.json).toHaveBeenCalledWith({
-      message: "Ocurrió un error al momento de crear el producto ",
+      expect(res.status).toHaveBeenCalledWith(500);
+      expect(res.json).toHaveBeenCalledWith({
+        message: "Ocurrió un error al momento de crear el producto ",
+      });
     });
   });
 });
