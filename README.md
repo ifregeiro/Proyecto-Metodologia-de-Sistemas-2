@@ -42,22 +42,30 @@ Proyecto-Metodología-De-Sistemas-2/
 │   │   ├── config/
 │   │   │    └──config.js
 │   │   ├── controllers/
-│   │   │    └── farmacia.controller.js
+│   │   │    └── productos.controller.js
+│   │   ├── database/
+│   │   │    └──database.js
 │   │   ├── middlewares/
 │   │   │    └── cors.js
 │   │   ├── models/
-│   │   │    └── farmaciaDB.js
+│   │   │    └── Categoria.models.js
+│   │   │    └── Producto.models.js
+│   │   │    └── SubCategoria.models.js
 │   │   ├── routes/
 │   │   │    └── productos.routes.js
-│   │   ├── schemas/
-│   │   │    └── farmaciaSchema.js
+│   │   ├── seeders/
+│   │   │    └── categorias.seeder.js
+│   │   │    └── productos.seeder.js
+│   │   │    └── subCategorias.seeder.js
 │   │   ├── views/
 │   │   │    └── index.ejs
+│   │   ├── test/
+│   │   │    └── controllers/
+│   │   │         └── productos.controllers.test.js
 │   │   ├── index.js
 │   │   ├── .env
 │   │   ├── server.js
 │   │   └── utils.js
-│   ├── api.http
 │   ├── .gitignore
 │   ├── package.json
 │   └── README.md
@@ -175,6 +183,7 @@ cd Proyecto-Metodologia-de-Sistemas-2
 ```bash
 cd backend
 npm install
+npm test
 ```
 
 #### Frontend
