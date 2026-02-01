@@ -1,4 +1,4 @@
-import { Categoria } from "../models/Categoria.model";
+import { Categoria } from "../models/Categoria.model.js";
 
 export async function categoriaSeed() {
   await Categoria.bulkCreate([

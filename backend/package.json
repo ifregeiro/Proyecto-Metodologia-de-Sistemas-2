@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch ./src/index.js",
-    "lint": "eslint .",
     "test": "vitest",
+    "seed": "node src/seeders/seed.js",
+    "lint": "eslint .",
     "prettier": "prettier --write ."
   },
   "keywords": [],
@@ -31,7 +32,6 @@
     "globals": "^17.0.0",
     "nodemon": "^3.1.11",
     "prettier": "3.7.4",
-    "supertest": "^7.1.4",
     "vitest": "^4.0.18"
   }
 }
