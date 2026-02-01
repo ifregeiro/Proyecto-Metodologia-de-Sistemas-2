@@ -1,4 +1,4 @@
-import { Producto } from "../models/Producto.model";
+import { Producto } from "../models/Producto.model.js";
 
 export async function ProductosSeed() {
   await Producto.bulkCreate([

@@ -1,4 +1,4 @@
-import { SubCategoria } from "../models/SubCategoria.model";
+import { SubCategoria } from "../models/SubCategoria.model.js";
 
 export async function subCategoriasSeed() {
   await SubCategoria.bulkCreate([
